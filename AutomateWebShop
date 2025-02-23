@@ -1,0 +1,53 @@
+package DriverMethods;
+
+import java.util.Random;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Task3 {
+
+	public static void main(String[] args) {
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://demowebshop.tricentis.com/");
+		
+		//a[text()='Register']
+		driver.findElement(By.xpath("//a[text()='Register']")).click();
+		//input[@id='FirstName']
+		
+		
+		driver.findElement(By.xpath("//label[text()='Female']")).click();
+		
+		WebElement FN=driver.findElement(By.xpath("//input[@id='FirstName']"));
+		FN.sendKeys("Sakshi");
+		//input[@id='LastName']
+		
+		WebElement LN=driver.findElement(By.xpath("//input[@id='LastName']"));
+		LN.sendKeys("Bhagat");
+		//input[@id='Email']
+		Random rr=new Random();
+		int num=rr.nextInt(10000);
+		String name="abc"+num+"@gmail.com";
+		WebElement MI=driver.findElement(By.xpath("//input[@id='Email']"));
+		MI.sendKeys(name);
+		
+
+		WebElement PD=driver.findElement(By.xpath("//input[@id='Password']"));
+		PD.sendKeys("bhagat@09");
+		WebElement CP=driver.findElement(By.xpath("//input[@id='ConfirmPassword']"));
+		CP.sendKeys("bhagat@09");
+		
+		driver.findElement(By.xpath("//input[@id='register-button']")).click();
+		
+		//input[@id='Password']
+		//input[@id='ConfirmPassword']
+		//input[@id='register-button']
+		
+		
+		
+		
+	}
+
+}
