@@ -1,0 +1,36 @@
+package DriverMethods;
+
+import java.util.Random;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Task4 {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://demowebshop.tricentis.com/");
+		driver.findElement(By.xpath("//a[text()='Log in']")).click();
+		Random ro=new Random();
+		int num=ro.nextInt(10000);
+		String name="bha"+num+"@gmail.com";
+		driver.findElement(By.xpath("//input[@id='Email']")).sendKeys(name);
+		int num2=ro.nextInt(10000);
+		String pwd="bha"+num2+"@8";
+		driver.findElement(By.xpath("//input[@id='Password']")).sendKeys(pwd);
+		driver.findElement(By.xpath("//input[@id='RememberMe']")).click();
+		driver.findElement(By.xpath("//input[@class='button-1 login-button']")).click();
+		
+		//input[@class='button-1 login-button']
+		//input[@id='Email']
+		//input[@id='Password']
+		//input[@id='RememberMe']
+		
+		
+		//driver.findElement(By.xpath("//a[text()='Register']")).click();
+
+	}
+
+}
